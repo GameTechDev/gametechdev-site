@@ -51,7 +51,7 @@ jobs:
       - name: Deploy to external repository
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.AUTH_TOKEN }}
+          personal_token: ${{ secrets.AUTH_TOKEN }}
           external_repository: gametechdev/gametechdev.github.io
           publish_branch: main
           force_orphan: true
