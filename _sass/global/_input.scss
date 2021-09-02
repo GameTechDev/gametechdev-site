@@ -1,0 +1,68 @@
+input{
+    height: rem(42px);
+    border-radius: 4px;
+    border: 1px solid $grey-2;
+    font-family: $font-text;
+    color: $type-black;
+    padding-left: .5rem;
+    margin: 0;
+    font-size: 1rem;
+    &::placeholder{
+        color: $grey-2
+    }
+}
+
+button{
+    &.search-button{
+        border-radius: 4px;
+        color: $grey-2;
+        width: rem(42px);
+        height: rem(42px);
+        border: 1px solid $grey-2;
+        background: white;
+        margin-left: .25rem;
+
+        cursor: pointer;
+
+    }
+    &.filters-toggle{
+        background: $grey-3;
+        border: none;
+
+        margin: 0;
+        display: inline-block;
+        padding: .5rem .75rem;
+        text-transform: uppercase;
+        text-decoration: none;
+
+        font-family: $font-text;
+        cursor: pointer;
+        i::before{
+            content: "\f146";
+        }
+        &.toggle{
+            i::before{
+                content: "\f0fe";
+            }
+        }
+        &:hover{
+            color: lighten($type-black, 20%);
+            
+        }
+
+    }
+}
+
+select{
+    margin: 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: .5rem .75rem;
+
+    font-family: $font-text;
+}
+
+.search-input-container{
+    display: flex;
+    margin: 0;
+}

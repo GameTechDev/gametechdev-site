@@ -1,0 +1,56 @@
+# following https://github.com/marketplace/actions/jekyll-action-ts ...
+name: Fetch and generate content, build site, deploy jekyll site
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+  # schedule:
+  # - cron: "0 7 * * *"
+  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+        
+    steps:
+      - name: 📂 setup
+        uses: actions/checkout@v2
+        
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+          
+      - name: Install dependencies
+        run: |
+          cd script
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          
+      - name: Generate content
+        env:
+          GITHUB_CONTENT_SYNC_ORG_REPOS_URL: ${{ secrets.CONTENT_SYNC_ORG_REPOS_URL }}
+          GITHUB_CONTENT_SYNC_PAT: ${{ secrets.AUTH_TOKEN }}
+        run: |
+          cd script
+          python compile_content.py
+        
+      - name: 💎 setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.2
+
+      - name: 🔨 install dependencies & build site
+        uses: limjh16/jekyll-action-ts@v2
+        with:
+          enable_cache: true
+          format_output: true
+
+      - name: 🚀 deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages

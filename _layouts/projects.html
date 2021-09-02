@@ -1,0 +1,102 @@
+---
+layout: page
+---
+
+{{ content }}
+
+{% include projects-filter.html %}
+<section id="projects">
+    {% if site.projects_sort == 'updated'%}
+    {% assign projects = site.data.projects | sort: 'updated_at' | reverse %}
+    {% elsif site.projects_sort == 'alpha'%}
+    {% assign projects = site.data.projects | sort_natural: 'name' %}
+    {% else %}
+    {% assign projects = site.data.projects | sort_natural: 'name' %}
+    {% endif %}
+    {% for project in projects %}
+    {% assign contentOverrides = site.data.projectsOverrides[project.name] %}
+    {% if contentOverrides["show"] != false %}
+    <section class="box-container project-card" data-project-name="{{ project.name }}" {% if project.topics
+        %}data-tags="{% for tag in project.topics %}{{ tag }}{% if forloop.last != true %}, {% endif %}{% endfor %}" {%
+            endif %}>
+            <div class="card-contents">
+                <div class="card-left">
+                    <div class="detail-container">
+                        {% if project.created_at %}<span class="detail">Created: {{ project.created_at | date: "%m/%d/%Y" }}</span>
+                        {% endif %}
+                        {% if project.updated_at %}<span class="detail" id="card-updated"
+                        data-card-updated="{{ project.updated_at }}">Updated: {{ project.updated_at | date: "%m/%d/%Y" }}</span>
+                        {% endif %}
+                    </div>
+                    <h2>
+                        {% if project.html_url %}
+                        <a href="{{ project.html_url }}#readme">{{project.name}}</a>
+                        {% else %}
+                        {{project.name}}
+                        {% endif %}
+                    </h2>
+                    <p>
+                        {% if project.long_description and project.long_description != "" %}
+                        {{ project.long_description }}
+                        {% else %}
+                        {{ project.description }}
+                        {% endif %}
+                    </p>
+                    <div class="detail-container">
+                        
+                        {% if project.license['name'] and project.license['name'] != "" %}<span class="detail"><i
+                            class="far fa-fw fa-balance-scale"></i>: {{
+                                project.license['name'] }}</span>
+                                {% endif %}
+                                
+                                {% if project.topics.size != 0 %}
+                                <span class="detail"><i class="far fa-fw fa-hashtag"></i>:
+                                    {% for topic in project.topics %}{{ topic }}{% if forloop.last != true %} <span
+                                    class="tag-spacer">|</span> {% endif %}{% endfor %}
+                                </span>
+                                {% endif %}
+                            </div>
+                            <div>
+                                {% if project.documentation_link != "" and project.documentation_link %}
+                                <a href="{{ project.documentation_link}}" class="box-link">Documentation</a>
+                                {% endif %}
+                                
+                                {% if project.homepage != "" and project.homepage %}
+                                <a href="{{ project.homepage}}" class="box-link">Article</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if contentOverrides.imgAsset %}
+                        <div class="card-right">
+                            <div class="img-container">
+                                {% if project.html_url %}
+                                <a href="{{ project.html_url }}#readme">
+                                    {% endif %}
+                                    <img src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ contentOverrides.imgAsset }}" alt="">
+                                    {% if project.html_url %}
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% else %}
+                        {% assign searchFileName = project.name %}
+                        {% assign thumbnail = site.static_files | where: "basename", searchFileName %}
+                        <div class="card-right">
+                            <div class="img-container">
+                                {% if project.html_url %}
+                                <a href="{{ project.html_url }}#readme">
+                                    {% endif %}
+                                    <img src="{{ site.url }}{{ site.baseurl }}/assets/img/thumb/{{ thumbnail[0].name }}" alt="">
+                                    {% if project.html_url %}
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </section>
+                {%endif%}
+                
+                {% endfor %}
+                <h4 id="no-results" style="display: none;">No results found. Please alter your search settings and/or term.</h4>
+                </section>

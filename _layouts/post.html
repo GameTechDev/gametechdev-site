@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<main>
+    <div class="split-contents baseline">
+        <h1 class="mb-half">{{ page.title }}</h1>
+        <h4 class="date mb-half">{{ page.date | date: '%B %d, %Y'}}</h4>
+    </div>
+    <hr>
+    {{ content }}
+    {% if site.posts.length != 0 %}
+    <hr>
+    <section class="box-container posts-list">
+        <div class="split-contents">
+            <h2>Latest News</h2>
+            <div>
+                <a class="box-link" href="{{ site.url }}{{ site.baseurl }}/archive.html">See all</a>
+            </div>
+        </div>
+        {% for post in site.posts limit:page.posts-to-show %}
+        <article class="post-container">
+            <span class="post-date">{{ post.date | date: '%B %d, %Y'}}</span>
+            <h2><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+            {{post.excerpt }}
+            <a class="box-link" href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">Learn More</a>
+
+        </article>
+        {%endfor%}
+    </section>
+    {% endif %}
+</main>

@@ -1,0 +1,16 @@
+---
+layout: page
+title: "Archive"
+---
+{% if site.posts.length != 0 %}
+<section class="box-container posts-list">
+    {% for post in site.posts %}
+    <article class="post-container">
+        <span class="post-date">{{ post.date | date: '%B %d, %Y'}}</span>
+        <h2><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+        {{post.excerpt }}
+        <a class="box-link" href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">Learn More</a>
+    </article>
+    {%endfor%}
+</section>
+{% endif %}

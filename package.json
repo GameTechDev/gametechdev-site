@@ -1,0 +1,22 @@
+{
+  "name": "jekyll-intel-gamedev",
+  "version": "1.0.0",
+  "description": "Jekyll Site Build Process",
+  "main": "gulpfile.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/ironhorse-ondemand/jekyll-intel-gamedev.git"
+  },
+  "author": "Iron Horse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/ironhorse-ondemand/jekyll-intel-gamedev/issues"
+  },
+  "homepage": "https://bitbucket.org/ironhorse-ondemand/jekyll-intel-gamedev#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.1.0"
+  }
+}

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {% include head.html %}
+</head>
+
+<body>
+  {% include vendor/ighf-header.html %}
+  {% include header-nav.html %}
+  {{ content }}
+  <footer>
+    {% include vendor/ighf-footer.html %}
+  </footer>
+  {% if jekyll.environment == "production"%}
+    {% include vendor/aa.html %}
+  {% endif %}
+</body>
+
+</html>

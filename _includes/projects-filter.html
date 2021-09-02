@@ -1,0 +1,26 @@
+<section class="split-contents">
+    <div></div>
+        <form class="search-input-container" id="search" onsubmit="searchCards(event);">
+            <input type="text" placeholder="Search" id="projects-search" onblur="searchCards(event)"><button class="search-button" type="button" onclick="searchCards(event)"><i class="fas fa-fw fa-2x fa-caret-right"></i></button>
+        </form>
+</section>
+<hr class="section-hr">
+<section class="split-contents">
+    <button class="filters-toggle" onClick="toggleFiltersVis()">Topics <i class="far"></i></button>
+    <select name="sort" id="card-sort" onChange="cardSort(this);">
+        <option value="updated">Last Updated</option>
+        <option value="alpha">Alphabetical A-Z</option>
+    </select>
+</section>
+<section class="filters-container">
+    <ul class="filters">
+        {% for topic in site.data.topics %}
+        {% if site.data.userTopics contains topic %}
+        <li class="filter-item" data-tag-id="{{ topic }}" onClick="singleFilterToggle('{{ topic }}', this)"><i
+                class="far fa-fw fa-square unselected"></i><i class="far fa-fw fa-check-square selected"></i><span>{{
+                topic }}</span>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</section>

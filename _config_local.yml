@@ -1,0 +1,44 @@
+title: GameTechDev
+
+url: "http://127.0.0.1:4000" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+
+# Default sort for Projects upon load. updated or alpha
+projects_sort: updated
+
+# Jekyll SEO Tag
+description: Helping developers create the best gaming experiences on Intel graphics processors.
+
+twitter:
+  username: intel
+  card: summary
+
+plugins:
+- jekyll-autoprefixer
+- jekyll-seo-tag
+
+# Note: Locking autoprefixer to version 1.0.1 (in gemspec) to avoid unpatched errors
+autoprefixer:
+  browsers:
+  - last 2 versions
+  only-production: true
+
+kramdown:
+  syntax_highlighter: coderay
+  syntax_highlighter_opts:
+      line_numbers: table
+
+collections:
+  projects:
+      output: false
+
+exclude:
+  - .idea
+  - script
+  - LICENSE.txt
+  - README.md
+  - jekyll-intel-gamedev.gemspec
+  - Gemfile
+  - package*.json
+  - node_modules
+  - gulpfile.js

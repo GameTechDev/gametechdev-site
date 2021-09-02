@@ -1,0 +1,33 @@
+.posts-list{
+    background-color: white;
+    z-index: 3;
+    position: relative;
+    .post-container{
+        &:not(:last-child){
+            margin-bottom: 2.5rem;
+        }
+        p{
+            margin-bottom: 1rem;
+        }
+        .post-date{
+            text-transform: uppercase;
+            font-size: rem(14px);
+            line-height: rem(18px);
+            color: $grey-2;
+            margin-bottom: .5rem;
+            display: block;
+        }
+        h2{
+            font-family: $font-heading-alt;
+                    font-size: rem(21px);
+                    line-height: rem(27px);
+                    margin-bottom: .75rem;
+            a {
+                color: $grey;
+                &:hover{
+                    color: lighten($grey, 20%);
+                }
+            }
+        }
+    }
+}

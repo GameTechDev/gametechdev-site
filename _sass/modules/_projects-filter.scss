@@ -1,0 +1,37 @@
+.filters{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    margin: 0;
+    .filter-item{
+        flex: 0 0 100%;
+        margin: 0;
+
+        cursor: pointer;
+        @media screen and (min-width: $breakpoint-small){
+            flex: 0 0 50%;
+        }
+        @media screen and (min-width: $breakpoint-med){
+            flex: 0 0 25%;
+        }
+        line-height: 1.8;
+        i.unselected{
+            display: inline-block;
+        }
+        i.selected{
+            display: none;
+        }
+        &.selected{
+            i.unselected{
+                display: none;
+            }
+            i.selected{
+                display: inline-block;
+            }
+        }
+    }
+    .filter-icon{
+        margin-right: 3px;
+    }
+}

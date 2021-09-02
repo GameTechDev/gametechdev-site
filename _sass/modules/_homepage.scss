@@ -1,0 +1,116 @@
+.home{
+    margin: 0;
+    max-width: 100%;
+    .featured-background{
+        display: none;
+        @media screen and (min-width: $breakpoint-med){
+            display: block;
+            background-color: #D9D9D9;  
+            height: rem(820px);
+            width: 100%;
+            z-index: -1;
+            position: absolute;
+            
+        }
+    }
+    .carousel-container{
+        padding: 2rem 2rem 4rem 2rem;
+        background-color: #D9D9D9;  
+
+        @media screen and (min-width: $breakpoint-med){
+            margin-top: rem(70px);
+            background: none;
+            padding: 0;
+
+        }
+        @media screen and (min-width: $breakpoint-xlarge){
+            &::before{
+                content: '';
+                height: 720px;
+                width: 100%;
+                display: block;
+                z-index: 2;
+                background: linear-gradient(90deg, #d9d9d9 0%, rgba(217, 217, 217, 0) 10%, rgba(217, 217, 217, 0) 90%, #d9d9d9 100%);
+                position: absolute;
+                pointer-events: none;
+                top: rem(-70px);
+                left: 0;
+            }
+        }
+    }
+}
+
+
+section.featured-card{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 0;
+    margin-bottom: 0;
+    margin-right: 1.5rem;
+    width: 100%;
+    max-width: 100%;    
+    align-self: center;
+    @media screen and (min-width: $breakpoint-med){
+        height: rem(620px);
+        margin-right: 8rem;
+        max-width: rem(928px);
+    }
+
+    .img-container{
+        width: 100%;
+        height: rem(320px);
+        background: #EFEFEF;
+        flex: 0 0 auto;
+        border: 0 !important;
+        img{
+            height: 100%;
+            width: 100%;
+            border: 0 !important;
+            object-fit: cover;
+        }
+    }
+
+    .text-content{
+        padding: 1.5rem 2rem;
+
+        flex: 1 1 auto;
+        @media screen and (min-width: $breakpoint-med){
+            padding: 1.5rem rem(60px) 1rem rem(60px);
+        }
+        h1{
+            font-size: rem(40px);
+            line-height: rem(51px);
+            margin-bottom: 1rem;
+        }
+        h2{
+            font-size: rem(21px);
+            line-height: rem(27px);
+            margin-bottom: 1rem;
+        }
+        p{
+            @media screen and (max-width: $breakpoint-med){
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.flickity-prev-next-button.previous{
+    display: none;
+    @media screen and (min-width: $breakpoint-xlarge){
+        left: calc(50% - 928px / 2 - 4rem);
+        display: block;
+    }
+}
+
+.flickity-prev-next-button.next{
+    display: none;
+    @media screen and (min-width: $breakpoint-xlarge){
+        right: calc(50% - 928px / 2 - 4rem);
+        display: block;
+    }
+}
+.flickity-page-dots{
+    position: relative;
+}

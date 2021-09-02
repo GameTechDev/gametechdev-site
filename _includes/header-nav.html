@@ -1,0 +1,34 @@
+<header>
+    <div class="header-left">
+        <a href="{{ site.url }}{{ site.baseurl }}">
+            <div class="logo">
+                <img src="{{ site.url }}{{ site.baseurl }}/assets/img/logo.svg" alt="Intel®">
+            </div>
+        </a>
+
+        <h1><a href="{{ site.url }}{{ site.baseurl }}">{{ site.title | default: 'GameTechDev' }}</a></h1>
+    </div>
+
+    <div id="mobile-menu-toggle">
+        <i id="menu-i" class="far fa-fw fa-bars" onClick="menuToggler()"></i>
+        <i id="close-i" class="far fa-fw fa-times" onClick="menuToggler()" style="display: none;"></i>
+    </div>
+
+    <nav id="header-nav">
+        <ul>
+            {% assign url = page.url|remove:'index.html' %}
+            {% for link in site.data.navigation %}
+                {% assign class = nil %}
+                {% if url == link.url %}
+                    {% assign class = 'active' %}
+                {% elsif link.url != '/' and url contains link.url %}
+                    {% assign class = 'active' %}
+                {% endif %}
+            <li class="{{ class }}">
+            <a href="{{ site.url }}{{ site.baseurl }}{{ link.url }}">{{ link.title }}</a>
+            </li>
+
+            {% endfor %}
+        </ul>
+    </nav>
+</header>

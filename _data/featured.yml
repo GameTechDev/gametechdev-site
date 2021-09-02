@@ -1,0 +1,8 @@
+- repoName: XeGTAO
+  # headline: This is a custom headline.
+  # linkTitle: This optionally sets the link and title below the headline
+  sliderImg: xeFeature.jpg
+  long_description: XeGTAO is an open source, MIT licensed, DirectX/HLSL implementation of the Practical Realtime Strategies for Accurate Indirect Occlusion, GTAO <a href="https://www.activision.com/cdn/research/Practical_Real_Time_Strategies_for_Accurate_Indirect_Occlusion_NEW%20VERSION_COLOR.pdf">[Jimenez et al., 2016]</a>, suitable for use on a wide range of modern PC integrated and discrete GPUs. The main benefit of GTAO over other screen space algorithms is that it uses a radiometrically-correct ambient occlusion equation, providing more physically correct AO term.
+- repoName: SamplerFeedbackStreaming
+  sliderImg: ssFeature.jpg
+  long_description: This repository contains a demo of DirectX12 Sampler Feedback Streaming, a technique using <a href="https://microsoft.github.io/DirectX-Specs/d3d/SamplerFeedback.html">DirectX12 Sampler Feedback</a> to guide continuous loading and eviction of reserved resource tiles. Sampler Feedback Streaming allows scenes containing 100s of gigabytes of resources to be drawn on GPUs containing much less physical memory. The scene below uses just ~200MB of a 1GB heap, despite over 350GB of total texture resources.

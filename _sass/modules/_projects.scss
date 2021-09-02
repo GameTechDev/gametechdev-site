@@ -1,0 +1,99 @@
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+#projects{
+    .project-card{
+        animation: fadeIn .2s linear 0s 1;
+        &.search-hide, &.filter-hide{
+            display: none;
+            visibility: hidden;
+        }
+        .detail-container{
+            text-transform: uppercase;
+            font-size: rem(14px);
+            line-height: rem(18px);
+            color: $grey-2;
+            margin-bottom: .5rem;
+            .detail{
+                display: block;
+                line-height: 1.5;
+                margin-bottom: .25rem;
+                @media screen and (min-width: $breakpoint-small){
+                    display: inline-block;
+                    line-height: 1.5;
+                }
+    
+    
+                .tag-spacer{
+                    color: $grey-2;
+                    padding: 0 .1rem;
+                }
+                color: $grey-2;
+                @media screen and (min-width: $breakpoint-small){
+                    margin-right: rem(20px);
+                    &:last-child{
+                        margin-right: 0px;
+                    }
+                }
+                i{
+                    margin-right: 3px;
+                }
+            }
+        }
+        .card-contents{
+            display: flex;
+            flex-direction: column;
+        
+            @media screen and (min-width: $breakpoint-med){
+                flex-direction: row;
+        
+            }
+            .card-left{
+                flex: 1 1 auto;
+                
+                @media screen and (min-width: $breakpoint-small){
+                    margin-right: .75rem;
+                }
+                h2 {
+                    font-family: $font-heading-alt;
+                    font-size: rem(21px);
+                    line-height: rem(27px);
+                    margin-bottom: .75rem;
+                    a {
+                        color: $grey;
+                        &:hover{
+                            color: lighten($grey, 20%);
+                        }
+                    }
+                }
+                p{
+                    margin-bottom: .75rem;
+                }
+            }
+            .card-right{
+                flex: 0 0 rem(120px);
+                
+                @media screen and (min-width: $breakpoint-med){
+                    flex: 0 0 rem(400px);
+                }
+    
+                .img-container{
+                    border: 1px solid $grey-4;
+                    line-height: 0;
+                    img{
+                        width:100%;
+                        height: auto;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+    #no-results{
+        margin: 0 auto;
+        color: $grey-2;
+        text-align: center;
+    }
+}

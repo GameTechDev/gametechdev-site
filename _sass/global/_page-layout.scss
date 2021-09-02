@@ -1,0 +1,57 @@
+main, .main{
+    max-width: 100%;
+    margin: 2rem;
+    @media screen and (min-width: $breakpoint-xsmall){
+        margin: 3rem;
+    }
+    @media screen and (min-width: $breakpoint-small){
+        margin: rem(70px);
+    }
+    @media screen and (min-width: $breakpoint-med){
+        @include mx-auto;
+        margin-top: rem(70px);
+        margin-bottom: rem(70px);
+        max-width: rem(928px);
+        width: 100%;
+    }
+}
+
+section.box-container{
+    border: 1px solid $grey-4;
+    margin-bottom: rem(50px);
+    min-height: 100px;
+    padding: 1.5rem;
+    @media screen and (min-width: $breakpoint-small){
+        padding: 2rem 3rem;
+    }
+    @media screen and (min-width: $breakpoint-med){
+        padding: rem(50px) rem(70px);
+    }
+}
+
+section.filters-container{
+    height: auto;
+    background: $grey-5;
+    border-top: 1px solid $grey-2;
+    border-bottom: 1px solid $grey-2;
+    margin-bottom: rem(50px);
+    padding: rem(20px);
+    overflow: hidden;
+
+    transition: all .2s;
+    &.closed{
+        height: 0px;
+        padding: 0 rem(20px);
+        border-top: 0;
+    }
+}
+
+hr{
+    margin-bottom: 2.5rem;
+    border-style: solid;
+    border: none;
+    border-top: 1px solid $grey-2;
+    &.section-hr{
+        margin: .5rem 0;
+    }
+}

@@ -1,0 +1,117 @@
+.comparison-container {
+    position: relative;
+    width: 100%;
+    margin: 2em auto;
+    border: 1px solid $grey-3;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+  .image-label {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #ffffff;
+    padding: 1em;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.3s 0.7s, opacity 0.3s 0.7s;
+  }
+  .image-label.is-hidden {
+    visibility: hidden;
+  }
+  .is-visible .image-label {
+    opacity: 1;
+    transform: translateY(0);
+  }
+   
+  .resize-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-size: cover !important;
+  }
+  .resize-image .image-label {
+    right: auto;
+    left: 0;
+  }
+  .is-visible .resize-image {
+    width: 50%;
+    animation: cd-bounce-in 0.7s;
+  }
+   
+  @-webkit-keyframes cd-bounce-in {
+    0% {
+      width: 0;
+    }
+    60% {
+      width: 55%;
+    }
+    100% {
+      width: 50%;
+    }
+  }
+  @-moz-keyframes cd-bounce-in {
+    0% {
+      width: 0;
+    }
+    60% {
+      width: 55%;
+    }
+    100% {
+      width: 50%;
+    }
+  }
+  @keyframes cd-bounce-in {
+    0% {
+      width: 0;
+    }
+    60% {
+      width: 55%;
+    }
+    100% {
+      width: 50%;
+    }
+  }
+  .handle {
+    position: absolute;
+    height: 44px;
+    width: 44px;
+    left: 50%;
+    top: 50%;
+    margin-left: -22px;
+    margin-top: -22px;
+    border-radius: 50%;
+    cursor: move;
+    box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0);
+    background-color: $grey-3;
+    text-align: center;
+    color: white;
+    text-shadow: 0 1px 6px #0006;
+    i{
+        margin-top: .9rem
+    }
+  }
+  .handle.draggable {
+    background-color: $grey-4;
+  }
+  .is-visible .handle {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+    -moz-transform: translate3d(0, 0, 0) scale(1);
+    -ms-transform: translate3d(0, 0, 0) scale(1);
+    -o-transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
+    -webkit-transition: -webkit-transform 0.3s 0.7s, opacity 0s 0.7s;
+    -moz-transition: -moz-transform 0.3s 0.7s, opacity 0s 0.7s;
+    transition: transform 0.3s 0.7s, opacity 0s 0.7s;
+  }

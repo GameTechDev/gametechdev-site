@@ -1,0 +1,64 @@
+---
+layout: default
+---
+<main class="home">
+
+    {% if site.data.featured %}
+    <div class="featured-background"></div>
+    <div class="carousel-container">
+        {% for feature in site.data.featured %}
+        <section class="box-container featured-card">
+            <div class="img-container">
+                <img src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ feature.sliderImg }}" alt="">
+            </div>
+            <div class="text-content">
+                <h1>{% if feature['headline'] %}{{ feature['headline'] }}{% else %}Featured Projects{% endif %}</h1>
+                {% assign pickRepo = site.data.projects | where: "name", feature['repoName'] %}
+                {% assign featuredRepo = pickRepo[0] %}
+                <h2>
+                    {% if featuredRepo.html_url %}
+                    <a href="{{ featuredRepo.html_url }}#readme">{% if feature['linkTitle']%}{{feature['linkTitle']}}{%
+                        else
+                        %}{{featuredRepo.name}}{% endif %}</a>
+                    {% else %}
+                    {{featuredRepo.name}}
+                    {% endif %}
+                </h2>
+                <p>
+                    {% if feature.long_description and feature.long_description != "" %}
+                    {{ feature.long_description }}
+                    {% else %}
+                    {{ featuredRepo.description }}
+                    {% endif %}
+                </p>
+            </div>
+
+        </section>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    
+    <section class="main">
+        {{ content }}
+        {% if site.posts.size != 0 %}
+        <section class="box-container posts-list">
+            <div class="split-contents">
+                <h2>Latest News</h2>
+                <div>
+                    <a class="box-link" href="{{ site.url }}{{ site.baseurl }}/archive.html">See all</a>
+                </div>
+            </div>
+            {% for post in site.posts limit:page.posts-to-show %}
+            <article class="post-container">
+                <span class="post-date">{{ post.date | date: '%B %d, %Y'}}</span>
+                <h2><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+                {{post.excerpt }}
+                <a class="box-link" href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">Learn More</a>
+
+            </article>
+            {%endfor%}
+        </section>
+        {% endif %}
+    </section>
+</main>
