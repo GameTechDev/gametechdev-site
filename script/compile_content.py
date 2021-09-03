@@ -93,7 +93,7 @@ if __name__ == '__main__':
             else:
                 print(f'Saving page {apiPage} of API response and getting imagery URLs...')
                 for repo in json.loads(getRepos.text):
-                    if not repo['archived']:
+                    if not repo['archived'] and not repo['private']:
                         for topic in repo['topics']:
                             topics.add(topic)
 
