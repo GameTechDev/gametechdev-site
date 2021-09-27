@@ -1,5 +1,5 @@
 // Code base By Webdevtrick ( https://webdevtrick.com )
-jQuery(document).ready(function ($) {
+jQuery(document).ready(function () {
     //check if the .comparison-container is in the viewport 
     //if yes, animate it
     checkPosition($('.comparison-container'));
@@ -8,7 +8,11 @@ jQuery(document).ready(function ($) {
     });
 
     //make the .handle element draggable and modify .resize-image width according to its position
-    drags($('.handle'), $('.resize-image'), $('.comparison-container'), $('.image-label[data-type="original"]'), $('.image-label[data-type="modified"]'));
+    $('figure.comparison-container').each(i => {
+        const identifier = `initialized-container-${i} `;
+        $($('figure.comparison-container')[i]).addClass(identifier);
+        drags($('.' + identifier + '.handle'), $('.' + identifier + '.resize-image'), $('.' + identifier), $('.' + identifier + '.image-label[data-type="original"]'), $('.' + identifier + '.image-label[data-type="modified"]'));
+    });
 
     //upadate images label visibility
     $(window).on('resize', function () {

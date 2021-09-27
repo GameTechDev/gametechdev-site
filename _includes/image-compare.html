@@ -1,8 +1,8 @@
 <figure class="comparison-container">
-    <img src="{{ site.url }}{{ site.baseurl }}{{ include.image_right }}" alt="Original Image">
+    <img src="{{ include.image_right }}" alt="">
     <span class="image-label" data-type="original">{% if include.title_right %}{{ include.title_right }}{% else %}Original{% endif %}</span>
     
-    <div class="resize-image" style="background: url('{{ site.url }}{{ site.baseurl }}{{ include.image_left }}') no-repeat left top;"> 
+    <div class="resize-image" style="background: url('{{ include.image_left }}') no-repeat left top;"> 
     <span class="image-label" data-type="modified">{% if include.title_left %}{{ include.title_left }}{% else %}Modified{% endif %}</span>
     </div>
     
