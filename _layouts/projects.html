@@ -24,10 +24,13 @@ layout: page
                     <div class="detail-container">
                         {% if project.created_at %}<span class="detail">Created: {{ project.created_at | date: "%m/%d/%Y" }}</span>
                         {% endif %}
+                        {% if project.pushed_at %}<span class="detail" id="card-updated"
+                        data-card-updated="{{ project.pushed_at }}">Updated: {{ project.pushed_at | date: "%m/%d/%Y" }}</span>
+                        {% else %}
                         {% if project.updated_at %}<span class="detail" id="card-updated"
                         data-card-updated="{{ project.updated_at }}">Updated: {{ project.updated_at | date: "%m/%d/%Y" }}</span>
                         {% endif %}
-                    </div>
+                        {% endif %}                    </div>
                     <h2>
                         {% if project.html_url %}
                         <a href="{{ project.html_url }}#readme">{{project.name}}</a>
