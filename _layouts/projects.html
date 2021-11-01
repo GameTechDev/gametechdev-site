@@ -7,7 +7,7 @@ layout: page
 {% include projects-filter.html %}
 <section id="projects">
     {% if site.projects_sort == 'updated'%}
-    {% assign projects = site.data.projects | sort: 'updated_at' | reverse %}
+    {% assign projects = site.data.projects | sort: 'pushed_at' | reverse %}
     {% elsif site.projects_sort == 'alpha'%}
     {% assign projects = site.data.projects | sort_natural: 'name' %}
     {% else %}
