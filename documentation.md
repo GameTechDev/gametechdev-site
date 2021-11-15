@@ -17,8 +17,11 @@ Developer guides for older generations of Intel® processor graphics.
 <section class="box-container" markdown="1">
 
 # CPU Developer Guides
+#### [Intel® 64 and IA-32 Architectures Software Developer Manuals](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html)
 
-#### [Intel® 64 and IA-32 Architectures Optimization Reference Manual](https://software.intel.com/content/dam/develop/public/us/en/documents/64-ia-32-architectures-optimization-manual.pdf)
+Collection of docuemmentation describing the architecture and programming environment of the Intel® 64 and IA-32 architectures.
+
+#### [Intel® 64 and IA-32 Architectures Optimization Reference Manual](https://www.intel.com/content/www/us/en/develop/download/intel-64-and-ia-32-architectures-optimization-reference-manual.html)
 
 The Intel® 64 and IA-32 Architectures Optimization Reference Manual describes how to optimize soft-ware to take advantage of the performance characteristics of IA-32 and Intel 64 architecture processors.
 </section>
